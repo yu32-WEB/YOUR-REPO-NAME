@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تصميم كوبك | حزب شاي</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🎨 صمم كوبك مع الملصقات!</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="products.html">المنتجات</a></li>
+                <li><a href="design.html" class="active">التصميم</a></li>
+                <li><a href="cart.html">🛒 سلة المشتريات</a></li>
+                <li><a href="checkout.html">الدفع</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="design-section">
+        <h2>اختر ملصقاتك المفضلة 🎭</h2>
+        
+        <!-- رفع صورة خاصة -->
+        <input type="file" id="uploadImage" accept="image/*">
+        <input type="text" id="customText" placeholder="أضف نصك هنا">
+        <button onclick="applyDesign()">📌 تطبيق التصميم</button>
+
+        <!-- قائمة الملصقات -->
+        <div class="stickers">
+            <h3>اختر ملصق:</h3>
+            <img src="sticker1.png" class="sticker" onclick="addSticker('sticker1.png')">
+            <img src="sticker2.png" class="sticker" onclick="addSticker('sticker2.png')">
+            <img src="sticker3.png" class="sticker" onclick="addSticker('sticker3.png')">
+        </div>
+
+        <!-- معاينة التصميم -->
+        <div class="preview">
+            <h3>معاينة التصميم:</h3>
+            <div id="cupPreview">
+                <img id="cupImage" src="cup-template.png" alt="كوب">
+                <p id="previewText">نصك هنا</p>
+                <div id="stickerContainer"></div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function applyDesign() {
+            let imageInput = document.getElementById("uploadImage").files[0];
+            let textInput = document.getElementById("customText").value;
+            
+            if (imageInput) {
+                let reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById("cupImage").src = e.target.result;
+                };
+                reader.readAsDataURL(imageInput);
+            }
+
+            document.getElementById("previewText").innerText = textInput;
+        }
+
+        function addSticker(stickerSrc) {
+            let sticker = document.createElement("img");
+            sticker.src = stickerSrc;
+            sticker.classList.add("addedSticker");
+            sticker.draggable = true;
+            sticker.ondragstart = dragStart;
+            document.getElementById("stickerContainer").appendChild(sticker);
+        }
+
+        function dragStart(event) {
+            event.dataTransfer.setData("text/plain", event.target.src);
+        }
+    </script>
+</body>
+</html>

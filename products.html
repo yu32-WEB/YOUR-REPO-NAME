@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منتجاتنا | حزب الشاي</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>🛍️ منتجاتنا</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="products.html">المنتجات</a></li>
+                <li><a href="design.html">صمم كوبك</a></li>
+                <li><a href="cart.html">🛒 سلة المشتريات</a></li>
+                <li><a href="checkout.html">إتمام الطلب</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="products">
+        <div class="product">
+            <img src="cup1.png" alt="كوب حزب الشاي">
+            <h3>كوب حزب الشاي</h3>
+            <p>تصميم خاص لمحبي الشاي 🍵</p>
+            <button onclick="addToCart('كوب حزب الشاي')">إضافة إلى السلة</button>
+        </div>
+
+        <div class="product">
+            <img src="cup2.png" alt="كوب مزخرف">
+            <h3>كوب مزخرف</h3>
+            <p>تصميم أنيق لعشاق الفن ✨</p>
+            <button onclick="addToCart('كوب مزخرف')">إضافة إلى السلة</button>
+        </div>
+    </section>
+
+    <script>
+        function addToCart(productName) {
+            alert(productName + " تمت إضافته إلى سلة المشتريات!");
+        }
+    </script>
+
+</body>
+</html>
+

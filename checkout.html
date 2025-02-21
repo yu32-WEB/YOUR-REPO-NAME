@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إتمام الطلب | حزب الشاي</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>📝 إتمام الطلب</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="products.html">المنتجات</a></li>
+                <li><a href="design.html">صمم كوبك</a></li>
+                <li><a href="cart.html">🛒 سلة المشتريات</a></li>
+                <li><a href="checkout.html">إتمام الطلب</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="checkout">
+        <h2>أدخل بياناتك لإتمام الطلب</h2>
+        <form action="submit_order.php" method="post">
+            <label for="name">الاسم الكامل:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="phone">رقم الجوال:</label>
+            <input type="text" id="phone" name="phone" required>
+
+            <label for="address">عنوان التوصيل:</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="payment">طريقة الدفع:</label>
+            <select id="payment" name="payment">
+                <option value="cash">الدفع عند الاستلام</option>
+                <option value="bank">تحويل بنكي</option>
+            </select>
+
+            <button type="submit">📩 إرسال الطلب</button>
+        </form>
+
+        <a href="https://wa.me/YOUR_NUMBER?text=مرحبا، أريد طلب أكواب الشاي!" class="whatsapp-btn">📲 اطلب عبر واتساب</a>
+    </section>
+
+</body>
+</html>
+
